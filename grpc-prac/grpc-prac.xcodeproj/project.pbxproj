@@ -13,6 +13,7 @@
 		3325C0AF29BE459E00AA2371 /* helloworld.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3325C0AC29BE459E00AA2371 /* helloworld.grpc.swift */; };
 		3325C0B029BE459E00AA2371 /* helloworld.proto in Sources */ = {isa = PBXBuildFile; fileRef = 3325C0AD29BE459E00AA2371 /* helloworld.proto */; };
 		3325C0B129BE459E00AA2371 /* helloworld.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3325C0AE29BE459E00AA2371 /* helloworld.pb.swift */; };
+		3325C0B929BE54C700AA2371 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3325C0B829BE54C700AA2371 /* SnapKit */; };
 		338BB0B429BCCD3E00F6A70E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338BB0B329BCCD3E00F6A70E /* AppDelegate.swift */; };
 		338BB0B629BCCD3E00F6A70E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338BB0B529BCCD3E00F6A70E /* SceneDelegate.swift */; };
 		338BB0B829BCCD3E00F6A70E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338BB0B729BCCD3E00F6A70E /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3325C0A829BE1F8200AA2371 /* GRPC in Frameworks */,
+				3325C0B929BE54C700AA2371 /* SnapKit in Frameworks */,
 				3325C0A629BE1F8200AA2371 /* CGRPCZlib in Frameworks */,
 				3325C0AA29BE1F8200AA2371 /* protoc-gen-grpc-swift in Frameworks */,
 			);
@@ -62,7 +64,6 @@
 		3325C0B229BE4F4400AA2371 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				338BB0B929BCCD3E00F6A70E /* Main.storyboard */,
 				338BB0BC29BCCD4000F6A70E /* Assets.xcassets */,
 				338BB0BE29BCCD4000F6A70E /* LaunchScreen.storyboard */,
 				338BB0B329BCCD3E00F6A70E /* AppDelegate.swift */,
@@ -82,6 +83,7 @@
 		3325C0B429BE4F6E00AA2371 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				3325C0B629BE543700AA2371 /* Storyboard */,
 				3325C0B529BE4F7700AA2371 /* Controller */,
 				3325C0AB29BE459500AA2371 /* proto */,
 			);
@@ -94,6 +96,14 @@
 				338BB0B729BCCD3E00F6A70E /* ViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		3325C0B629BE543700AA2371 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				338BB0B929BCCD3E00F6A70E /* Main.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		338BB0A729BCCD3E00F6A70E = {
@@ -142,6 +152,7 @@
 				3325C0A529BE1F8200AA2371 /* CGRPCZlib */,
 				3325C0A729BE1F8200AA2371 /* GRPC */,
 				3325C0A929BE1F8200AA2371 /* protoc-gen-grpc-swift */,
+				3325C0B829BE54C700AA2371 /* SnapKit */,
 			);
 			productName = "grpc-prac";
 			productReference = 338BB0B029BCCD3E00F6A70E /* grpc-prac.app */;
@@ -173,6 +184,7 @@
 			mainGroup = 338BB0A729BCCD3E00F6A70E;
 			packageReferences = (
 				3325C0A429BE1F8200AA2371 /* XCRemoteSwiftPackageReference "grpc-swift" */,
+				3325C0B729BE54C700AA2371 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 338BB0B129BCCD3E00F6A70E /* Products */;
 			projectDirPath = "";
@@ -434,6 +446,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		3325C0B729BE54C700AA2371 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -451,6 +471,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3325C0A429BE1F8200AA2371 /* XCRemoteSwiftPackageReference "grpc-swift" */;
 			productName = "protoc-gen-grpc-swift";
+		};
+		3325C0B829BE54C700AA2371 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3325C0B729BE54C700AA2371 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
