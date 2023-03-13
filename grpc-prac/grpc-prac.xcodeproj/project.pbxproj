@@ -14,10 +14,10 @@
 		3325C0B029BE459E00AA2371 /* helloworld.proto in Sources */ = {isa = PBXBuildFile; fileRef = 3325C0AD29BE459E00AA2371 /* helloworld.proto */; };
 		3325C0B129BE459E00AA2371 /* helloworld.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3325C0AE29BE459E00AA2371 /* helloworld.pb.swift */; };
 		3325C0B929BE54C700AA2371 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3325C0B829BE54C700AA2371 /* SnapKit */; };
+		3325C0BB29BF150200AA2371 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3325C0BA29BF150200AA2371 /* Main.storyboard */; };
 		338BB0B429BCCD3E00F6A70E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338BB0B329BCCD3E00F6A70E /* AppDelegate.swift */; };
 		338BB0B629BCCD3E00F6A70E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338BB0B529BCCD3E00F6A70E /* SceneDelegate.swift */; };
 		338BB0B829BCCD3E00F6A70E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338BB0B729BCCD3E00F6A70E /* ViewController.swift */; };
-		338BB0BB29BCCD3E00F6A70E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 338BB0B929BCCD3E00F6A70E /* Main.storyboard */; };
 		338BB0BD29BCCD4000F6A70E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 338BB0BC29BCCD4000F6A70E /* Assets.xcassets */; };
 		338BB0C029BCCD4000F6A70E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 338BB0BE29BCCD4000F6A70E /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -26,11 +26,11 @@
 		3325C0AC29BE459E00AA2371 /* helloworld.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helloworld.grpc.swift; sourceTree = "<group>"; };
 		3325C0AD29BE459E00AA2371 /* helloworld.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = helloworld.proto; sourceTree = "<group>"; };
 		3325C0AE29BE459E00AA2371 /* helloworld.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helloworld.pb.swift; sourceTree = "<group>"; };
+		3325C0BA29BF150200AA2371 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		338BB0B029BCCD3E00F6A70E /* grpc-prac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "grpc-prac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		338BB0B329BCCD3E00F6A70E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		338BB0B529BCCD3E00F6A70E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		338BB0B729BCCD3E00F6A70E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		338BB0BA29BCCD3E00F6A70E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		338BB0BC29BCCD4000F6A70E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		338BB0BF29BCCD4000F6A70E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		338BB0C129BCCD4000F6A70E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 		3325C0B629BE543700AA2371 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				338BB0B929BCCD3E00F6A70E /* Main.storyboard */,
+				3325C0BA29BF150200AA2371 /* Main.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -200,9 +200,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3325C0BB29BF150200AA2371 /* Main.storyboard in Resources */,
 				338BB0C029BCCD4000F6A70E /* LaunchScreen.storyboard in Resources */,
 				338BB0BD29BCCD4000F6A70E /* Assets.xcassets in Resources */,
-				338BB0BB29BCCD3E00F6A70E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,14 +225,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		338BB0B929BCCD3E00F6A70E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				338BB0BA29BCCD3E00F6A70E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		338BB0BE29BCCD4000F6A70E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
