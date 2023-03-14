@@ -83,7 +83,7 @@ extension ViewController {
 // MARK: - gRPC server connect
 extension ViewController {
     private func getGRPC(_ name: String) async -> String {
-        let group = MultiThreadedEventLoopGroup(numberOfThreads: 3)
+        let group = MultiThreadedEventLoopGroup(numberOfThreads: 1)
         let channel = try? GRPCChannelPool.with(
             target: .host("localhost", port: 1234),
             transportSecurity: .plaintext,
