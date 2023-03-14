@@ -9,16 +9,22 @@ import UIKit
 import GRPC
 import NIO
 import SnapKit
+import RxSwift
+import RxCocoa
 
 final class ViewController: UIViewController {
     private let textField = UITextField()
     private let getHelloButton = UIButton()
     private let resultLabel = UILabel()
     
+    private var bag = DisposeBag()
+    private var viewModel = MainViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         configureUI()
+        bindUserInteraction()
     }
 }
 
@@ -34,7 +40,6 @@ extension ViewController {
         getHelloButton.setTitle("👆🏻인사하기", for: .normal)
         getHelloButton.backgroundColor = .lightGray
         getHelloButton.layer.cornerRadius = 5.0
-        getHelloButton.addTarget(self, action: #selector(getHelloButtonDidTap), for: .touchUpInside)
         
         // resultLabel
         resultLabel.font = UIFont.systemFont(ofSize: 13.0, weight: .semibold)
@@ -65,47 +70,19 @@ extension ViewController {
     }
 }
 
-// MARK: - Custom Methods
+// MARK: - bind
 extension ViewController {
-    @objc
-    private func getHelloButtonDidTap() {
-        Task {
-            let greetingMessage = await getGRPC(textField.text ?? "")
-            
-            DispatchQueue.main.async { [weak self] in
-                self?.resultLabel.text = greetingMessage
-                self?.textField.text = ""
-            }
-        }
-    }
-}
-
-// MARK: - gRPC server connect
-extension ViewController {
-    private func getGRPC(_ name: String) async -> String {
-        let group = MultiThreadedEventLoopGroup(numberOfThreads: 1)
-        let channel = try? GRPCChannelPool.with(
-            target: .host("localhost", port: 1234),
-            transportSecurity: .plaintext,
-            eventLoopGroup: group
-        )
-        
-        defer {
-            try! channel?.close().wait()
-        }
-        
-        let greeter = Helloworld_GreeterAsyncClient(channel: channel!)
-        let request = Helloworld_HelloRequest.with {
-            $0.name = name
-        }
-        
-        do {
-            let greeting = try await greeter.sayHello(request)
-            print("Greeter received: \(greeting.message)")
-            return greeting.message
-        } catch {
-            print("Greeter failed: \(error)")
-            return ""
-        }
+    private func bindUserInteraction() {
+        getHelloButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                Task {
+                    await self?.viewModel.getGRPC(self?.textField.text ?? "")
+                    DispatchQueue.main.async { [weak self] in
+                        self?.resultLabel.text = self?.viewModel.greeterData.value
+                        self?.textField.text = ""
+                    }
+                }
+            })
+            .disposed(by: bag)
     }
 }
