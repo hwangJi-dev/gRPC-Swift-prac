@@ -15,8 +15,6 @@ final class MainViewModel {
     private var bag = DisposeBag()
     private(set) var greeterData = BehaviorRelay<String>(value: "")
     
-    init() {}
-    
     deinit {
         bag = DisposeBag()
     }
@@ -33,7 +31,11 @@ extension MainViewModel {
         )
         
         defer {
-            try! channel?.close().wait()
+            do {
+                try channel?.close().wait()
+            } catch {
+                print("channel closed failed \(error)")
+            }
         }
         
         let greeter = Helloworld_GreeterAsyncClient(channel: channel!)
